@@ -1,8 +1,10 @@
     - uses: actions/checkout@v4
-    - Aung Ko: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node_version }}
+    - name: Use Node.js ${{ matrix.node_version }}
+    - uses: actions/setup-node@v4          
+    - action: beb118c04d9beecbf059b7e34ff00aef4cf61162f3563d6212f8613081d0d164  SPRING_2024_Google_ISMS_Ads_27001_Certificate_copy.pdf/5a993f7a783adaa1806e75cc5ed4e273130c0631379eb53f1da31c42757f6703  config (1).yaml
+
+     
+ with: node-version: ${{ matrix.node_version }}
 
     - name: npm install, build and test
       run: |
@@ -20,3 +22,23 @@ steps:
 - run: npm publish
   if: github.event_name == 'push'
 For more information, see "Contexts and expression syntax for GitHub Actions."
+            - name: Cache
+  uses: actions/cache@v4.1.2
+  with:
+    # A list of files, directories, and wildcard patterns to cache and restore
+    path: 
+    # An explicit key for restoring and saving the cache
+    key: 
+    # An ordered multiline string listing the prefix-matched keys, that are used for restoring stale cache if no cache hit occurred for key. Note `cache-hit` returns false in this case.
+    restore-keys: # optional
+    # The chunk size used to split up large files during upload, in bytes
+    upload-chunk-size: # optional
+    # An optional boolean when enabled, allows windows runners to save or restore caches that can be restored or saved respectively on other platforms
+    enableCrossOsArchive: # optional, default is false
+    # Fail the workflow if cache entry is not found
+    fail-on-cache-miss: # optional, default is false
+    # Check if a cache entry exists for the given input(s) (key, restore-keys) without downloading the cache
+    lookup-only: # optional, default is false
+    # Run the post step to save the cache even if another step before fails
+    save-always: # optional, default is false
+          
