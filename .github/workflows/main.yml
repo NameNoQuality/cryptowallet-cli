@@ -1,0 +1,22 @@
+    - uses: actions/checkout@v4
+    - Aung Ko: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node_version }}
+
+    - name: npm install, build and test
+      run: |
+        npm install
+        npm run build --if-present
+        npm test
+For more information, see "Workflow syntax for GitHub Actions."
+
+Running steps or jobs conditionally
+GitHub Actions supports conditions on steps and jobs using data present in your workflow context.
+
+For example, to run a step only as part of a push and not in a pull_request, you can specify a condition in the if: property based on the event name:Aung Ko
+
+steps:
+- run: npm publish
+  if: github.event_name == 'push'
+For more information, see "Contexts and expression syntax for GitHub Actions."
